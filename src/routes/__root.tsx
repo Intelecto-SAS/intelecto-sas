@@ -77,21 +77,92 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      {
+        title:
+          "Intelecto | Inteligencia Artificial, Automatización y Desarrollo de Software",
+      },
+      {
+        name: "description",
+        content:
+          "Intelecto desarrolla soluciones de inteligencia artificial, automatización, software a la medida, tecnologías Microsoft, datos y nube para empresas públicas y privadas en Colombia.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Inteligencia artificial empresarial, Automatización de procesos, Agentes de IA, Desarrollo de software, Soluciones Microsoft, Power Platform, Azure AI, Transformación digital en Colombia",
+      },
+      { name: "author", content: "Intelecto" },
+      { name: "robots", content: "index, follow" },
+      { name: "theme-color", content: "#020c66" },
+      { name: "geo.region", content: "CO-VAC" },
+      { name: "geo.placename", content: "Cali, Colombia" },
+      {
+        property: "og:title",
+        content:
+          "Intelecto | Inteligencia Artificial, Automatización y Desarrollo de Software",
+      },
+      {
+        property: "og:description",
+        content:
+          "Soluciones de IA, automatización, software a la medida, Microsoft, datos y nube para empresas en Colombia.",
+      },
+      { property: "og:site_name", content: "Intelecto" },
+      { property: "og:locale", content: "es_CO" },
+      { property: "og:image", content: "/logo.png" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      {
+        name: "twitter:title",
+        content:
+          "Intelecto | Inteligencia Artificial, Automatización y Desarrollo de Software",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Soluciones de IA, automatización y software a la medida para empresas en Colombia.",
+      },
+      { name: "twitter:image", content: "/logo.png" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/logo.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/logo.png" },
+      { rel: "preconnect", href: "https://images.unsplash.com" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Intelecto",
+          url: "https://www.intelecto.co",
+          logo: "https://www.intelecto.co/logo.png",
+          foundingDate: "2001",
+          description:
+            "Empresa colombiana especializada en inteligencia artificial, automatización, desarrollo de software, soluciones Microsoft, datos y nube.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Cali",
+            addressRegion: "Valle del Cauca",
+            addressCountry: "CO",
+          },
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+57-314-794-3431",
+            contactType: "customer service",
+            email: "contacto@intelecto.co",
+            availableLanguage: "Spanish",
+          },
+        }),
+      },
+      {
+        children:
+          '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xq6qhlhdlw");',
+      },
     ],
   }),
   shellComponent: RootShell,
