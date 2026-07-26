@@ -28,26 +28,15 @@ const reasons = [
 ];
 
 export function ContactSection() {
-  const [sent, setSent] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [result, setResult] = useState("");
 
-  const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY?.trim();
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending....");
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitError(null);
-
-    if (!WEB3FORMS_ACCESS_KEY) {
-      setSubmitError("Falta configurar VITE_WEB3FORMS_ACCESS_KEY en el entorno.");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    const form = e.target as HTMLFormElement;
+    const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
-    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.append("access_key", "7c41b04a-29a5-4857-b971-5f1097835a50");
     formData.append("subject", "Nuevo contacto desde landing Intelecto");
     formData.append("from_name", "Landing Intelecto");
 
@@ -57,23 +46,16 @@ export function ContactSection() {
         body: formData,
       });
 
-      const result = (await response.json()) as { success?: boolean; message?: string };
+      const data = (await response.json()) as { success?: boolean };
 
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || "No se pudo enviar el formulario");
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        form.reset();
+      } else {
+        setResult("Error");
       }
-
-      setSent(true);
-      form.reset();
-      setTimeout(() => setSent(false), 5000);
-    } catch (error) {
-      setSubmitError(
-        error instanceof Error
-          ? error.message
-          : "Ocurrió un error enviando el formulario. Intenta nuevamente."
-      );
-    } finally {
-      setIsSubmitting(false);
+    } catch {
+      setResult("Error");
     }
   };
 
@@ -188,16 +170,14 @@ export function ContactSection() {
             </div>
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={result === "Sending...."}
               className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white shadow-lg hover:scale-[1.01] transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ADEE]"
               style={{ background: "linear-gradient(135deg,#00ADEE,#020c66)" }}
             >
-              {isSubmitting ? "Enviando..." : sent ? "¡Mensaje enviado!" : "Enviar mensaje"}
+              {result === "Sending...." ? "Enviando..." : "Enviar mensaje"}
               <Send size={18} />
             </button>
-            {submitError ? (
-              <p className="text-sm text-red-600 text-center">{submitError}</p>
-            ) : null}
+            <p className="text-sm text-center text-slate-700">{result}</p>
             <p className="text-xs text-slate-500 text-center">
               Al enviar este formulario, aceptas nuestra política de privacidad
             </p>
