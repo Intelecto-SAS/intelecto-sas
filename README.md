@@ -14,9 +14,9 @@ Open your project in the [Lovable editor](https://lovable.dev) and keep building
 
 Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-Before starting, configure environment variables by copying `.env.example` to `.env.local`.
+Before starting, configure environment variables by copying `.env.example` to `.env`.
 
-Set the value of `VITE_WEB3FORMS_ACCESS_KEY` in `.env.local` with your Web3Forms access key.
+Set the value of `VITE_WEB3FORMS_ACCESS_KEY` in `.env` with your Web3Forms access key.
 
 ```sh
 git clone <this-repository-url>
