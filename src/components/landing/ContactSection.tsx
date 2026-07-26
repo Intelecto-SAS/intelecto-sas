@@ -1,6 +1,6 @@
-import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { useState, type FormEvent } from "react";
 import { SectionHeader } from "./SectionHeader";
 
 const solutionOptions = [
@@ -29,12 +29,52 @@ const reasons = [
 
 export function ContactSection() {
   const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY?.trim();
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
-    (e.target as HTMLFormElement).reset();
-    setTimeout(() => setSent(false), 5000);
+    setSubmitError(null);
+
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setSubmitError("Falta configurar VITE_WEB3FORMS_ACCESS_KEY en el entorno.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.append("subject", "Nuevo contacto desde landing Intelecto");
+    formData.append("from_name", "Landing Intelecto");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = (await response.json()) as { success?: boolean; message?: string };
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "No se pudo enviar el formulario");
+      }
+
+      setSent(true);
+      form.reset();
+      setTimeout(() => setSent(false), 5000);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Ocurrió un error enviando el formulario. Intenta nuevamente."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass =
@@ -148,12 +188,16 @@ export function ContactSection() {
             </div>
             <button
               type="submit"
+              disabled={isSubmitting}
               className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white shadow-lg hover:scale-[1.01] transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ADEE]"
               style={{ background: "linear-gradient(135deg,#00ADEE,#020c66)" }}
             >
-              {sent ? "¡Mensaje enviado!" : "Enviar mensaje"}
+              {isSubmitting ? "Enviando..." : sent ? "¡Mensaje enviado!" : "Enviar mensaje"}
               <Send size={18} />
             </button>
+            {submitError ? (
+              <p className="text-sm text-red-600 text-center">{submitError}</p>
+            ) : null}
             <p className="text-xs text-slate-500 text-center">
               Al enviar este formulario, aceptas nuestra política de privacidad
             </p>
