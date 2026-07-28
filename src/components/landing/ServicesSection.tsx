@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Zap, ArrowRight } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { scrollToId } from "./nav";
 
@@ -9,8 +9,7 @@ const services = [
     description:
       "Transformamos la experiencia digital de trabajo mediante herramientas colaborativas, seguras y escalables dentro del ecosistema Microsoft.",
     tags: ["Microsoft 365", "Teams & SharePoint", "Gestión Documental", "Productividad Empresarial"],
-    image:
-      "https://images.unsplash.com/photo-1762341119237-98df67c9c3c9?auto=format&fit=crop&w=900&q=80",
+    image: "/Soluciones/low_code.png",
     alt: "Aplicación móvil low-code en un smartphone",
   },
   {
@@ -18,8 +17,7 @@ const services = [
     description:
       "Centralizamos y automatizamos procesos comerciales y operativos mediante soluciones empresariales conectadas y orientadas a resultados.",
     tags: ["Dynamics 365", "CRM & Ventas", "Customer Insights", "Automatización Comercial"],
-    image:
-      "https://images.unsplash.com/photo-1667984390553-7f439e6ae401?auto=format&fit=crop&w=900&q=80",
+    image: "/Soluciones/aplicaciones_empresariales.png",
     alt: "Infraestructura cloud empresarial",
   },
   {
@@ -27,8 +25,7 @@ const services = [
     description:
       "Convertimos los datos en información accionable a través de dashboards ejecutivos, analítica avanzada y ecosistemas modernos de datos.",
     tags: ["Microsoft Fabric", "Power BI", "Dashboards Ejecutivos", "Analítica Empresarial"],
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+    image: "/Soluciones/datos.png",
     alt: "Dashboards con analítica de datos",
   },
   {
@@ -36,8 +33,7 @@ const services = [
     description:
       "Desarrollamos soluciones empresariales enfocadas en seguridad, automatización y autogestión para optimizar la operación y reducir la carga operativa.",
     tags: ["AdSecurity", "Legal Hub", "Bots de Autogestión", "Automatización de Tareas"],
-    image:
-      "https://images.unsplash.com/photo-1768224656445-33d078c250b7?auto=format&fit=crop&w=900&q=80",
+    image: "/Soluciones/nuestros_productos.png",
     alt: "Red de ciberseguridad",
   },
   {
@@ -45,8 +41,7 @@ const services = [
     description:
       "Construimos software a la medida con las mejores prácticas de ingeniería para responder a los retos específicos de cada negocio.",
     tags: ["Web", "APIs", "Cloud Native", "DevOps"],
-    image:
-      "https://images.unsplash.com/photo-1637937459053-c788742455be?auto=format&fit=crop&w=900&q=80",
+    image: "/Soluciones/desarrollo.png",
     alt: "Código en pantalla de desarrollador",
   },
   {
@@ -54,8 +49,7 @@ const services = [
     description:
       "Garantizamos la calidad, estabilidad y rendimiento de las soluciones tecnológicas mediante procesos especializados de validación y aseguramiento.",
     tags: ["QA Funcional", "Testing Automatizado", "Validación de Rendimiento", "Control de Calidad"],
-    image:
-      "https://images.unsplash.com/photo-1760611656007-f767a8082758?auto=format&fit=crop&w=900&q=80",
+    image: "/Soluciones/testing.png",
     alt: "Equipo trabajando en pruebas de software",
   },
 ];
