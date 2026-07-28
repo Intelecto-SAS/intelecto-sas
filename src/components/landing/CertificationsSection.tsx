@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BadgeCheck, ShieldCheck, Award, ExternalLink } from "lucide-react";
+import { Award, BadgeCheck, ExternalLink, ShieldCheck } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
 export type Certification = {
@@ -13,15 +13,29 @@ export type Certification = {
 
 const certifications: Certification[] = [
   {
-    name: "ISO 9001",
-    category: "Gestión de calidad",
+    name: "Microsoft Solutions Partner",
+    category: "Modern Work",
     description:
-      "Certificación orientada a la mejora continua, la calidad de los procesos y la satisfacción de nuestros clientes.",
-    year: "2018",
+      "Reconocimiento de Microsoft que respalda nuestra capacidad para implementar soluciones modernas de productividad, colaboración y transformación digital.",
+    year: "2024",
+  },
+  {
+    name: "Microsoft ISV",
+    category: "Independent Software Vendor",
+    description:
+      "Bajo el modelo ISV, desarrollamos soluciones y productos propios que se integran con el ecosistema Microsoft y fortalecen la propuesta empresarial.",
+    year: "2024",
+  },
+  {
+    name: "Certificaciones Microsoft del equipo",
+    category: "Azure, Power Platform, Microsoft 365, Dynamics 365, Copilot, ISTQB",
+    description:
+      "Nuestro talento cuenta con certificaciones especializadas en nube, automatización, productividad, CRM, IA generativa y aseguramiento de calidad.",
+    year: "Varios",
   },
 ];
 
-const highlights = ["Calidad", "Seguridad", "Buenas prácticas", "Experiencia", "Mejora continua"];
+const highlights = ["Modern Work", "ISV", "Azure", "Power Platform", "Microsoft 365", "Dynamics 365", "Copilot", "ISTQB"];
 
 export function CertificationsSection() {
   return (
