@@ -1,22 +1,27 @@
 import { motion } from "framer-motion";
-import { Shield, Code2, Rocket, ShieldCheck, ArrowRight } from "lucide-react";
+import { ArrowRight, BrainCircuit, Code2, Rocket, Shield, ShieldCheck } from "lucide-react";
 import { scrollToId } from "./nav";
 
 const features = [
   {
+    icon: BrainCircuit,
+    title: "IA que genera resultados",
+    text: "Implementamos agentes inteligentes, Copilot, automatización y modelos de IA que optimizan procesos, reducen tiempos y potencian la toma de decisiones.",
+  },
+  {
     icon: Code2,
-    title: "Desarrollo a medida",
-    text: "Soluciones creadas según los procesos, retos y objetivos de tu organización.",
+    title: "Transformación Digital End-to-End",
+    text: "Creamos aplicaciones web, móviles y plataformas empresariales adaptadas a los procesos y objetivos específicos de cada organización.",
   },
   {
     icon: Rocket,
-    title: "Innovación constante",
-    text: "Implementamos tecnología Microsoft, Dynamics 365, Power Platform y Azure para modernizar tu operación.",
+    title: "Un aliado para crecer",
+    text: "Más de dos décadas acompañando organizaciones públicas y privadas con proyectos tecnológicos de alto impacto y resultados medibles.",
   },
   {
     icon: ShieldCheck,
-    title: "Experiencia certificada",
-    text: "Más de dos décadas acompañando proyectos tecnológicos con calidad, respaldo y conocimiento especializado.",
+    title: "Ecosistema Microsoft",
+    text: "Especialistas en Microsoft 365, Dynamics 365, Power Platform, Azure y SharePoint para construir soluciones integradas y escalables.",
   },
 ];
 
