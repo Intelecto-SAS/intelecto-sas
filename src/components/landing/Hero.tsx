@@ -15,8 +15,8 @@ const features = [
   },
   {
     icon: Rocket,
-    title: "Un aliado para crecer",
-    text: "Más de dos décadas acompañando organizaciones públicas y privadas con proyectos tecnológicos de alto impacto y resultados medibles.",
+    title: "Innovación con propósito",
+    text: "Desarrollamos soluciones tecnológicas enfocadas en resolver retos reales y acelerar la evolución de las organizaciones.",
   },
   {
     icon: ShieldCheck,
