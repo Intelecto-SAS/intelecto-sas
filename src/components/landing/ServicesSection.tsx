@@ -32,7 +32,7 @@ const services = [
     title: "Nuestros productos",
     description:
       "Desarrollamos soluciones empresariales enfocadas en seguridad, automatización y autogestión para optimizar la operación y reducir la carga operativa.",
-    tags: ["AdSecurity", "Legal Hub", "Bots de Autogestión", "Automatización de Tareas"],
+    tags: ["AdSecurity", "HubLegal", "BotInty"],
     image: "/Soluciones/nuestros_productos.png",
     alt: "Red de ciberseguridad",
   },

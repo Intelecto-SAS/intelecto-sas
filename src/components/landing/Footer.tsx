@@ -78,14 +78,6 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10">
-            <div className="font-semibold text-white text-sm">Legal</div>
-            <ul className="mt-2 space-y-1 text-sm text-white/70">
-              <li>Términos de Servicio</li>
-              <li>Política de Privacidad</li>
-              <li>Cookies</li>
-            </ul>
-          </div>
         </div>
       </div>
 
