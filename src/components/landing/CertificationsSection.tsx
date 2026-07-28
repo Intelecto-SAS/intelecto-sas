@@ -78,9 +78,6 @@ export function CertificationsSection() {
                 {c.category}
               </div>
               <p className="mt-3 text-sm text-slate-600 flex-1">{c.description}</p>
-              {c.year && (
-                <div className="mt-4 text-xs text-slate-500">Desde {c.year}</div>
-              )}
               {c.verificationUrl && (
                 <a
                   href={c.verificationUrl}
