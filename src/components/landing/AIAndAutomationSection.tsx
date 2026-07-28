@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
 import {
-  Sparkles,
-  Bot,
-  Workflow,
-  FileSearch,
-  Puzzle,
   ArrowRight,
-  CheckCircle2,
   BarChart3,
-  Zap,
+  Bot,
+  CheckCircle2,
   Link2,
+  Puzzle,
+  Sparkles,
+  Workflow,
+  Zap,
 } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { scrollToId } from "./nav";
@@ -34,59 +33,6 @@ const floatingCards = [
   { icon: Workflow, label: "Automatización", pos: "top-6 right-6" },
   { icon: BarChart3, label: "Analítica", pos: "bottom-6 left-6" },
   { icon: Puzzle, label: "Integraciones", pos: "bottom-6 right-6" },
-];
-
-const capabilities = [
-  {
-    title: "Agentes de IA empresariales",
-    description:
-      "Creamos asistentes y agentes capaces de consultar información, analizar documentos, orientar usuarios y ejecutar tareas dentro de los procesos de la organización.",
-    items: [
-      "Atención y autogestión",
-      "Consulta de conocimiento",
-      "Análisis de documentos",
-      "Asistencia a equipos",
-    ],
-    icon: Bot,
-  },
-  {
-    title: "Automatización de procesos",
-    description:
-      "Digitalizamos flujos manuales y conectamos personas, aplicaciones y datos para mejorar los tiempos de respuesta.",
-    items: [
-      "Flujos de aprobación",
-      "Alertas y notificaciones",
-      "Gestión de solicitudes",
-      "Automatización de tareas",
-    ],
-    icon: Workflow,
-  },
-  {
-    title: "IA aplicada a documentos y datos",
-    description:
-      "Convertimos documentos y datos empresariales en información útil para clasificar, resumir, validar y tomar decisiones.",
-    items: [
-      "Extracción de información",
-      "Clasificación automática",
-      "Resúmenes inteligentes",
-      "Analítica empresarial",
-    ],
-    icon: FileSearch,
-  },
-  {
-    title: "Integración con el ecosistema Microsoft",
-    description:
-      "Implementamos soluciones conectadas con las herramientas que ya utiliza la organización.",
-    items: [
-      "Microsoft Copilot Studio",
-      "Power Automate",
-      "Power Apps",
-      "Azure AI",
-      "Microsoft Fabric",
-      "Dynamics 365",
-    ],
-    icon: Puzzle,
-  },
 ];
 
 export function AIAndAutomationSection() {
@@ -209,35 +155,6 @@ export function AIAndAutomationSection() {
           </motion.div>
         </div>
 
-        <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {capabilities.map((cap, i) => (
-            <motion.article
-              key={cap.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group p-6 rounded-2xl bg-white border border-slate-100 shadow-[0_10px_30px_-15px_rgba(2,12,102,0.15)] hover:shadow-[0_20px_40px_-15px_rgba(2,12,102,0.25)] hover:-translate-y-1 transition-all"
-            >
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-md mb-4"
-                style={{ background: "linear-gradient(135deg,#00ADEE,#020c66)" }}
-              >
-                <cap.icon size={22} />
-              </div>
-              <h3 className="text-lg font-bold text-[#020c66]">{cap.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{cap.description}</p>
-              <ul className="mt-4 space-y-1.5">
-                {cap.items.map((it) => (
-                  <li key={it} className="text-sm text-slate-700 flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#00ADEE] shrink-0" />
-                    {it}
-                  </li>
-                ))}
-              </ul>
-            </motion.article>
-          ))}
-        </div>
       </div>
     </section>
   );
