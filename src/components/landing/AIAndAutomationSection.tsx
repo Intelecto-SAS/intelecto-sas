@@ -121,7 +121,7 @@ export function AIAndAutomationSection() {
               style={{ boxShadow: "0 30px 60px -20px rgba(2,12,102,0.35)" }}
             >
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+                src="/equipo_planeando.png"
                 alt="Equipo empresarial usando inteligencia artificial y automatización"
                 loading="lazy"
                 className="w-full h-full object-cover"
