@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, TrendingUp, CheckCircle2, Heart, Lightbulb, Users, Target } from "lucide-react";
+import { Award, CheckCircle2, Heart, Lightbulb, Target, TrendingUp, Users } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
 const values = [
@@ -7,13 +7,6 @@ const values = [
   { icon: Heart, title: "Pasión", text: "Amamos lo que hacemos y se refleja en nuestro trabajo" },
   { icon: Lightbulb, title: "Innovación", text: "Siempre a la vanguardia de la tecnología" },
   { icon: Users, title: "Colaboración", text: "Tu éxito es nuestro éxito" },
-];
-
-const timeline = [
-  { year: "2002", text: "Fundación de la empresa" },
-  { year: "2010", text: "Expansión internacional" },
-  { year: "2018", text: "Certificación ISO 9001" },
-  { year: "2025", text: "500+ proyectos completados" },
 ];
 
 export function AboutSection() {
@@ -32,7 +25,7 @@ export function AboutSection() {
           description="Desde 2002, transformamos ideas en soluciones tecnológicas que impulsan el crecimiento de empresas en todo el mundo."
         />
 
-        <div className="mt-16 grid lg:grid-cols-2 gap-10 items-start">
+        <div className="mt-10 grid lg:grid-cols-2 gap-8 items-start">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -99,9 +92,9 @@ export function AboutSection() {
           </motion.div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-10">
           <h3 className="text-2xl font-bold text-[#020c66] text-center">Nuestros Valores</h3>
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map((v, i) => (
               <motion.div
                 key={v.title}
@@ -124,29 +117,6 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-[#020c66] text-center">Nuestro Recorrido</h3>
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {timeline.map((t, i) => (
-              <motion.div
-                key={t.year}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="text-center p-6 rounded-2xl bg-white border border-slate-100 shadow-sm"
-              >
-                <div
-                  className="text-3xl font-bold bg-clip-text text-transparent"
-                  style={{ backgroundImage: "linear-gradient(90deg,#00ADEE,#020c66)" }}
-                >
-                  {t.year}
-                </div>
-                <div className="mt-2 text-sm text-slate-600">{t.text}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
