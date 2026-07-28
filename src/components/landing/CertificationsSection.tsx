@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, BadgeCheck, ExternalLink, ShieldCheck } from "lucide-react";
+import { BadgeCheck, ExternalLink, ShieldCheck } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
 export type Certification = {
@@ -34,8 +34,6 @@ const certifications: Certification[] = [
     year: "Varios",
   },
 ];
-
-const highlights = ["Modern Work", "ISV", "Azure", "Power Platform", "Microsoft 365", "Dynamics 365", "Copilot", "ISTQB"];
 
 export function CertificationsSection() {
   return (
@@ -91,45 +89,6 @@ export function CertificationsSection() {
             </motion.article>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5 }}
-          className="mt-14 p-8 lg:p-10 rounded-3xl text-white shadow-2xl"
-          style={{
-            background: "linear-gradient(135deg,#00ADEE 0%,#020c66 100%)",
-            boxShadow: "0 30px 60px -20px rgba(2,12,102,0.4)",
-          }}
-        >
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10">
-            <div className="flex-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-medium">
-                <Award size={14} />
-                Talento especializado
-              </div>
-              <h3 className="mt-4 text-2xl lg:text-3xl font-bold">
-                Talento especializado para proyectos de alto impacto
-              </h3>
-              <p className="mt-3 text-white/90 max-w-2xl">
-                Contamos con profesionales con experiencia en desarrollo de
-                software, tecnologías Microsoft, nube, datos, automatización,
-                calidad y transformación digital.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {highlights.map((h) => (
-                <span
-                  key={h}
-                  className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25 text-sm font-medium"
-                >
-                  {h}
-                </span>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
