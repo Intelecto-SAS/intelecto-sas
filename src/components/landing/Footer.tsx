@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram, Heart } from "lucide-react";
+import { Heart, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { NAV_LINKS, scrollToId } from "./nav";
 
 const services = [
@@ -7,6 +7,7 @@ const services = [
   { label: "Apps Móviles" },
   { label: "Soluciones Cloud" },
   { label: "Consultoría IT" },
+  { label: "Testing" },
 ];
 
 export function Footer() {
@@ -25,8 +26,8 @@ export function Footer() {
           </p>
           <ul className="mt-5 space-y-2 text-sm">
             <li className="flex items-center gap-2 text-white/85"><Mail size={16} /> contacto@intelecto.co</li>
-            <li className="flex items-center gap-2 text-white/85"><Phone size={16} /> +57 (314) 794-3431</li>
-            <li className="flex items-center gap-2 text-white/85"><MapPin size={16} /> Cali, Colombia</li>
+            <li className="flex items-center gap-2 text-white/85"><Phone size={16} /> +57 (314)794-3431</li>
+            <li className="flex items-center gap-2 text-white/85"><MapPin size={16} /> CLO ‧ BOG ‧ BGA ‧ USA</li>
           </ul>
         </div>
 
