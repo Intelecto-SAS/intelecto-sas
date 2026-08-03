@@ -120,14 +120,15 @@ export function PartnerBenefits() {
             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55 }}
-            className="relative mx-auto w-full max-w-[620px] overflow-hidden rounded-[26px] border border-[#113487] bg-[#03114e] p-6 shadow-[0_20px_55px_-24px_rgba(2,12,102,0.55)] sm:p-8"
+            className="relative mx-auto w-full max-w-[620px] overflow-hidden rounded-[26px] border border-[#113487] bg-[#03114e] p-6 shadow-[0_20px_55px_-24px_rgba(2,12,102,0.55)] sm:p-8 xl:max-w-[760px] 2xl:max-w-[860px]"
             aria-label="Simulacion de flujo de alianza entre partner e Intelecto"
             role="img"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(0,173,238,0.22),transparent_40%)]" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_72%,rgba(57,107,255,0.20),transparent_44%)]" />
 
-            <div className="relative hidden h-[470px] lg:block">
+            <div className="relative hidden h-[470px] lg:block xl:h-[555px] 2xl:h-[640px]">
+              <div className="absolute left-1/2 top-0 h-[470px] w-[620px] -translate-x-1/2 origin-top xl:scale-[1.18] 2xl:scale-[1.36]">
               <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 620 470" fill="none" aria-hidden="true">
                 <path
                   d="M94 92 C 190 108, 214 176, 292 222"
@@ -302,6 +303,7 @@ export function PartnerBenefits() {
               </div>
 
               <div className="pointer-events-none absolute inset-x-8 bottom-3 h-px bg-gradient-to-r from-transparent via-[#7de5ff]/30 to-transparent" />
+              </div>
             </div>
 
             <div className="relative block lg:hidden">
