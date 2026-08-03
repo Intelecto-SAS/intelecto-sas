@@ -170,6 +170,35 @@
   }
 }
 
+@keyframes partners-flow {
+  0% {
+    stroke-dashoffset: 54;
+    opacity: 0.3;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 0.95;
+  }
+  100% {
+    stroke-dashoffset: -54;
+    opacity: 0.3;
+  }
+}
+
+@keyframes partners-particle {
+  0% {
+    transform: translateX(0px) translateY(0px) scale(0.9);
+    opacity: 0.12;
+  }
+  30% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateX(165px) translateY(118px) scale(1.05);
+    opacity: 0;
+  }
+}
+
 @layer utilities {
   .partners-float {
     animation: partners-float 7s ease-in-out infinite;
@@ -181,11 +210,29 @@
     background: linear-gradient(90deg, rgba(0, 173, 238, 0.12), rgba(0, 173, 238, 0.65), rgba(2, 12, 102, 0.2));
     animation: partners-line 5.4s ease-in-out infinite;
   }
+
+  .partners-flow-line {
+    stroke: rgba(143, 236, 255, 0.8);
+    stroke-linecap: round;
+    stroke-dasharray: 9 8;
+    animation: partners-flow 5.8s ease-in-out infinite;
+  }
+
+  .partners-particle {
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(180, 244, 255, 1), rgba(0, 173, 238, 0.05));
+    filter: blur(0.2px);
+    animation: partners-particle 5.6s linear infinite;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .partners-float,
-  .partners-connector {
+  .partners-connector,
+  .partners-flow-line,
+  .partners-particle {
     animation: none;
   }
 }

@@ -35,7 +35,7 @@ export function PartnerCTA() {
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Button
-              onClick={() => scrollToSection("contacto-partners")}
+              onClick={() => scrollToSection("contacto")}
               className="h-11 rounded-xl bg-[#020c66] px-6 text-white shadow-[0_10px_28px_-14px_rgba(2,12,102,0.6)] hover:bg-[#03158a]"
             >
               <Handshake size={18} />
@@ -43,7 +43,7 @@ export function PartnerCTA() {
             </Button>
             <Button
               variant="outline"
-              onClick={() => scrollToSection("contacto-partners")}
+              onClick={() => scrollToSection("contacto")}
               className="h-11 rounded-xl border-slate-300 bg-white/85 px-6 text-[#020c66] hover:border-[#00ADEE] hover:bg-[#f3fbff]"
             >
               <ArrowUpRight size={18} />

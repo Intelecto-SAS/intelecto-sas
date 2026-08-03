@@ -80,7 +80,7 @@ export function PartnersHero() {
 
           <div className="mt-9 flex flex-wrap gap-3">
             <Button
-              onClick={() => scrollToSection("contacto-partners")}
+              onClick={() => scrollToSection("contacto")}
               className="h-11 rounded-xl bg-[#020c66] px-6 text-white shadow-[0_10px_28px_-14px_rgba(2,12,102,0.6)] hover:bg-[#03158a]"
             >
               Quiero ser partner
