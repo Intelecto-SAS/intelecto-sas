@@ -236,3 +236,318 @@
     animation: none;
   }
 }
+
+.partner-growth-graphic {
+  --partner-primary: var(--brand-primary, #176bff);
+  --partner-accent: var(--brand-accent, #00c2ff);
+  --partner-module-border: var(--border, rgba(23, 107, 255, 0.16));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 4 / 3;
+}
+
+.partner-growth-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+@keyframes partnerBaseEnter {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.3);
+  }
+
+  8% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  84% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  96% {
+    opacity: 0;
+    transform: scaleX(0.85);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scaleX(0.3);
+  }
+}
+
+@keyframes partnerModuleEnter {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+  }
+
+  18% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  82% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  94%,
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+}
+
+@keyframes partnerGrowthLine {
+  0%,
+  28% {
+    opacity: 0;
+    stroke-dashoffset: 520;
+  }
+
+  48% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  84% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  96%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes partnerGrowthLineGlow {
+  0%,
+  28% {
+    opacity: 0;
+    stroke-dashoffset: 520;
+  }
+
+  48% {
+    opacity: 0.1;
+    stroke-dashoffset: 0;
+  }
+
+  84% {
+    opacity: 0.1;
+    stroke-dashoffset: 0;
+  }
+
+  96%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes partnerArrowEnter {
+  0%,
+  45% {
+    opacity: 0;
+    transform: translate(-8px, 8px);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  84% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  96%,
+  100% {
+    opacity: 0;
+    transform: translate(4px, -4px);
+  }
+}
+
+@keyframes partnerStructurePulse {
+  0%,
+  54% {
+    transform: scale(1);
+  }
+
+  62% {
+    transform: scale(1.018);
+  }
+
+  70%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes partnerGlow {
+  0%,
+  35% {
+    opacity: 0.04;
+  }
+
+  58% {
+    opacity: 0.12;
+  }
+
+  76% {
+    opacity: 0.08;
+  }
+
+  96%,
+  100% {
+    opacity: 0.04;
+  }
+}
+
+.partner-growth-base {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: partnerBaseEnter;
+  animation-duration: 7.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.partner-growth-structure {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: partnerStructurePulse;
+  animation-duration: 7.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.partner-growth-module {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: partnerModuleEnter;
+  animation-duration: 7.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  filter: drop-shadow(0 6px 16px rgba(2, 12, 102, 0.12));
+}
+
+.partner-growth-module.module-1 {
+  animation-delay: 0.35s;
+}
+
+.partner-growth-module.module-2 {
+  animation-delay: 0.7s;
+}
+
+.partner-growth-module.module-3 {
+  animation-delay: 1.05s;
+}
+
+.partner-growth-module.module-4 {
+  animation-delay: 1.4s;
+}
+
+.partner-growth-line,
+.partner-growth-line-glow {
+  stroke-dasharray: 520;
+  stroke-dashoffset: 520;
+  animation-duration: 7.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.partner-growth-line {
+  animation-name: partnerGrowthLine;
+}
+
+.partner-growth-line-glow {
+  animation-name: partnerGrowthLineGlow;
+}
+
+.partner-growth-arrow {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: partnerArrowEnter;
+  animation-duration: 7.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.partner-growth-glow {
+  animation-name: partnerGlow;
+  animation-duration: 7.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 1024px) {
+  .partner-growth-graphic {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  .partner-growth-graphic {
+    max-width: 360px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-growth-module {
+    filter: drop-shadow(0 4px 10px rgba(2, 12, 102, 0.08));
+  }
+
+  .partner-growth-glow {
+    opacity: 0.06;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-growth-base,
+  .partner-growth-structure,
+  .partner-growth-module,
+  .partner-growth-line,
+  .partner-growth-line-glow,
+  .partner-growth-arrow,
+  .partner-growth-glow {
+    animation: none;
+  }
+
+  .partner-growth-base,
+  .partner-growth-module,
+  .partner-growth-line,
+  .partner-growth-arrow {
+    opacity: 1;
+    transform: none;
+  }
+
+  .partner-growth-line,
+  .partner-growth-line-glow {
+    stroke-dashoffset: 0;
+  }
+
+  .partner-growth-line-glow {
+    opacity: 0.1;
+  }
+
+  .partner-growth-glow {
+    opacity: 0.08;
+  }
+}
