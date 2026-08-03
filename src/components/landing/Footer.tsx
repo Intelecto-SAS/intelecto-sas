@@ -1,3 +1,4 @@
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 import { Heart, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { NAV_LINKS, scrollToId } from "./nav";
 
@@ -11,6 +12,19 @@ const services = [
 ];
 
 export function Footer() {
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+
+  const goToSection = async (id: string) => {
+    if (pathname !== "/") {
+      await navigate({ to: "/" });
+      setTimeout(() => scrollToId(id), 80);
+      return;
+    }
+
+    scrollToId(id);
+  };
+
   return (
     <footer
       className="text-white"
@@ -36,11 +50,19 @@ export function Footer() {
           <ul className="mt-4 space-y-2">
             {NAV_LINKS.map((l) => (
               <li key={l.id}>
-                <button onClick={() => scrollToId(l.id)} className="text-white/80 hover:text-[#00ADEE] text-sm">
+                <button onClick={() => goToSection(l.id)} className="text-white/80 hover:text-[#00ADEE] text-sm">
                   {l.label}
                 </button>
               </li>
             ))}
+            <li>
+              <button
+                onClick={() => navigate({ to: "/partners" })}
+                className="text-white/80 hover:text-[#00ADEE] text-sm"
+              >
+                Partners
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -51,7 +73,7 @@ export function Footer() {
               <li key={s.label}>
                 {s.id ? (
                   <button
-                    onClick={() => scrollToId(s.id!)}
+                    onClick={() => goToSection(s.id!)}
                     className={`text-sm hover:text-[#00ADEE] ${s.highlight ? "text-[#00ADEE] font-semibold" : "text-white/80"}`}
                   >
                     {s.label}

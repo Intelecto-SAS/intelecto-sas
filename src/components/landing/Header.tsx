@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { NAV_LINKS, scrollToId } from "./nav";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -13,9 +16,22 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const go = (id: string) => {
+  const go = async (id: string) => {
     setOpen(false);
+
+    if (pathname !== "/") {
+      await navigate({ to: "/" });
+      setTimeout(() => scrollToId(id), 80);
+      return;
+    }
+
     setTimeout(() => scrollToId(id), 10);
+  };
+
+  const goPartners = async () => {
+    setOpen(false);
+    await navigate({ to: "/partners" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -45,6 +61,17 @@ export function Header() {
               {l.label}
             </button>
           ))}
+          <button
+            onClick={goPartners}
+            aria-current={pathname === "/partners" ? "page" : undefined}
+            className={`px-2.5 xl:px-3 py-2 text-[13px] xl:text-sm font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ADEE] ${
+              pathname === "/partners"
+                ? "text-[#020c66] bg-[#00ADEE]/10"
+                : "text-[#1e1e1e] hover:text-[#00ADEE]"
+            }`}
+          >
+            Partners
+          </button>
         </nav>
 
         <button
@@ -69,6 +96,17 @@ export function Header() {
                 {l.label}
               </button>
             ))}
+            <button
+              onClick={goPartners}
+              aria-current={pathname === "/partners" ? "page" : undefined}
+              className={`text-left px-3 py-3 font-medium rounded-md ${
+                pathname === "/partners"
+                  ? "text-[#020c66] bg-[#00ADEE]/10"
+                  : "text-[#1e1e1e] hover:bg-slate-50 hover:text-[#00ADEE]"
+              }`}
+            >
+              Partners
+            </button>
           </nav>
         </div>
       )}
